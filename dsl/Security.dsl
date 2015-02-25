@@ -1,5 +1,15 @@
 module Security
 {
+	permissions
+	{
+		filter Role	'it => it.Name == Thread.CurrentPrincipal.Identity.Name' except Administrator;
+		filter User	'it => it.Name == Thread.CurrentPrincipal.Identity.Name' except Administrator;
+	} 
+
+	role Administrator;
+	role Artist;
+	role Guest;
+	
 	aggregate User(Name) {
 		String(100)  Name;
 		Role(Name)   *Role;
@@ -10,6 +20,7 @@ module Security
 
 	aggregate Role(Name) {
 		String(100)  Name;
+		static Artist 'Artist';
 	}
 
 	aggregate InheritedRole(Name, ParentName) {
@@ -19,8 +30,6 @@ module Security
 		Role(ParentName)  *ParentRole;
 		implements server 'Revenj.Security.IUserRoles, Revenj.Security';
 	}
-
-	role Administrator;
 
 	aggregate GlobalPermission(Name) {
 		String(200)  Name;

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
     <title>MultiPaint</title>
     <head>
@@ -7,22 +7,28 @@
         <link rel="stylesheet" href="/static/css/colorpicker.css"/>
     </head>
 
-    <body>
-        <h1>MultiPaint - Click and drag!</h1>
-        <div id="colorPicker">
-            <a class="color"><div class="colorInner"></div></a>
-            <div class="track"></div>
-            <ul class="dropdown"><li></li></ul>
-            <input type="hidden" class="colorInput" />
-        </div>
+<body>
+    <h1>MultiPaint - Click and drag!</h1>
+    <div id="colorPicker">
+        <a class="color"><div class="colorInner"></div></a>
+        <div class="track"></div>
+        <ul class="dropdown"><li></li></ul>
+        <input type="hidden" class="colorInput" />
+    </div>
+    <div id="thickness-control">
+        <span class="thickness" id="thickness-inc">[+]</span>
+        &nbsp;
+        <span class="thickness" id="thickness-dec">[&#x2212;]</span>
+        <span class="thickness" id="random-color">[random]</span>
+    </div>
+    <div id="drawing-area">
+        <canvas id="drawing" width="512" height="512">
+    </div>
 
-        <canvas id="sandbox" width="512" height="512">
-
-        <script type="text/javascript" src="/static/js/jquery-2.1.3.min.js"></script>
-        <script type="text/javascript" src="/static/js/jquery.tinycolorpicker-0.0.7.min.js"></script>
-        <script type="text/javascript" src="/static/js/multipaint.js"></script>
-
-        <script type="text/javascript" src="/static/js/jquery.signalr-2.1.0.min.js"></script>
-        <script type="text/javascript" src="/signalr/hubs"></script>
-    </body>
+    <script type="text/javascript" src="/static/js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.tinycolorpicker-0.0.7.min.js"></script>
+    <script type="text/javascript" src="/static/js/multipaint.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.signalr-2.1.0.min.js"></script>
+    <script type="text/javascript" src="/signalr/hubs"></script>
+</body>
 </html>

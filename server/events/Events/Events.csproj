@@ -182,7 +182,7 @@
   <ItemGroup>
     <Compile Include="RegisterArtist.cs" />
     <Compile Include="ChangeBrushEventHandler.cs" />
-    <Compile Include="MouseActionEventHandler.cs" />
+    <Compile Include="BrushActionEventHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

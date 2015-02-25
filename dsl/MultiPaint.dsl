@@ -1,27 +1,27 @@
 module MultiPaint
 {
-	/* private artist information */
-	big aggregate Artist {
-		String     Name;
-		Guid       Session { Index; }
+	/* Each visitor creates a new Artist */
+	aggregate Artist(Name) {
+		String(100)          Name;
+		Security.User(Name)  *User;
+
 		Timestamp  CreatedAt { sequence; }
-
-		specification GetArtistBySession 'it => it.Session == Session' {
-			Guid Session;
-		}
+		Timestamp  LastActiveAt;
 	}
-
-	/* brushes are public and authors are known */
+		
+	/* Artists create Brushes in order to draw */
 	big aggregate Brush {
-		Artist  *Artist;
-		String  Color;
+		Artist    *Artist;
+		String    Color;
+		Int       Thickness;
+		Position? LastPosition;
 	}
 
 	/* request for a new brush */
 	event ChangeBrush {
-		Guid   Session; // authorization
-		String Color;
-		Long?  BrushID; // output
+		String  Color;
+		Int     Thickness;
+		Long?   BrushID; // output
 	}
 
 	value Position {
@@ -29,7 +29,7 @@ module MultiPaint
 		Int  Y;
 	}
 
-	/* one segment of a brush path */
+	/* one segment of a brush path 
 	big aggregate Segment {
 		Brush       *Brush;
 		Int         Index;
@@ -53,16 +53,16 @@ module MultiPaint
 		order by BrushID, Index;
 	}
 
-	enum MouseState {
-		Press; Drag; Release;
+*/
+	enum BrushState {
+		Hover; Press; Draw; Lift;
 	}
 
 	/* mouse actions create brush segments */
-	event MouseAction {
-		Guid        Session; // authorization
+	event BrushAction {
 		Long        BrushID;
 		Int         Index;
-		MouseState  State;
+		BrushState  State;
 		Position    Position;
 	}
 }
