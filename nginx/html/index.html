@@ -15,20 +15,39 @@
         <ul class="dropdown"><li></li></ul>
         <input type="hidden" class="colorInput" />
     </div>
-    <div id="thickness-control">
-        <span class="thickness" id="thickness-inc">[+]</span>
-        &nbsp;
-        <span class="thickness" id="thickness-dec">[&#x2212;]</span>
-        <span class="thickness" id="random-color">[random]</span>
+    <div id="brush-control" class="noselect">
+        <span id="brush-thin">[&#x2212;]</span>&nbsp;
+        <span id="brush-thickness">5</span>&nbsp;
+        <span id="brush-thicken">[+]</span>&nbsp;
+        <span id="brush-random">[random]</span>&nbsp;
+        <span id="brush-brighten">[<span>&#x258A;</span>]</span>&nbsp;
+        <span id="brush-darken">[<span>&#x258A;</span>]</span>
     </div>
     <div id="drawing-area">
-        <canvas id="drawing" width="512" height="512">
+        <canvas id="drawing" width="512" height="512"/>
     </div>
 
     <script type="text/javascript" src="/static/js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.repeatedclick-1.0.5.min.js"></script>
     <script type="text/javascript" src="/static/js/jquery.tinycolorpicker-0.0.7.min.js"></script>
-    <script type="text/javascript" src="/static/js/multipaint.js"></script>
     <script type="text/javascript" src="/static/js/jquery.signalr-2.1.0.min.js"></script>
     <script type="text/javascript" src="/signalr/hubs"></script>
+    
+    <script type="text/javascript" src="/client/ts/drawing/Brush.js"></script>
+    <script type="text/javascript" src="/client/ts/drawing/BrushControl.js"></script>
+    <script type="text/javascript" src="/client/ts/drawing/BrushCursor.js"></script>
+    <script type="text/javascript" src="/client/ts/drawing/HSL.js"></script>
+    <script type="text/javascript" src="/client/ts/drawing/RGB.js"></script>
+
+    <script type="text/javascript" src="/client/ts/model/BrushAction.js"></script>
+    <script type="text/javascript" src="/client/ts/model/BrushState.js"></script>
+    <script type="text/javascript" src="/client/ts/model/BrushTracking.js"></script>
+
+    <script type="text/javascript" src="/client/ts/server/Api.js"></script>
+    <script type="text/javascript" src="/client/ts/server/GuestApi.js"></script>
+    <script type="text/javascript" src="/client/ts/server/ArtistApi.js"></script>
+    <script type="text/javascript" src="/client/ts/server/Notificator.js"></script>
+    
+    <script type="text/javascript" src="/client/ts/MultiPaint.js"></script>
 </body>
 </html>

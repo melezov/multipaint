@@ -1,7 +1,6 @@
 module Security
 {
-	permissions
-	{
+	permissions	{
 		filter Role	'it => it.Name == Thread.CurrentPrincipal.Identity.Name' except Administrator;
 		filter User	'it => it.Name == Thread.CurrentPrincipal.Identity.Name' except Administrator;
 	} 
@@ -10,6 +9,8 @@ module Security
 	role Artist;
 	role Guest;
 	
+	role pero;
+
 	aggregate User(Name) {
 		String(100)  Name;
 		Role(Name)   *Role;

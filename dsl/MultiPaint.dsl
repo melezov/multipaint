@@ -5,16 +5,10 @@ module MultiPaint
 		String(100)          Name;
 		Security.User(Name)  *User;
 
-		Timestamp  CreatedAt { sequence; }
-		Timestamp  LastActiveAt;
-	}
-		
-	/* Artists create Brushes in order to draw */
-	big aggregate Brush {
-		Artist    *Artist;
-		String    Color;
-		Int       Thickness;
-		Position? LastPosition;
+		String(64)  DisplayName;
+		Timestamp   CreatedAt { sequence; }
+
+		Timestamp   LastActiveAt { Index; }
 	}
 
 	/* request for a new brush */
@@ -24,45 +18,55 @@ module MultiPaint
 		Long?   BrushID; // output
 	}
 
-	value Position {
-		Int  X;
-		Int  Y;
+	/* Artists create Brushes in order to draw */
+	big aggregate Brush {
+		Artist         *Artist;
+		String         Color;
+		Int            Thickness;
+		BrushTracking? LastTracking;
 	}
 
-	/* one segment of a brush path 
-	big aggregate Segment {
-		Brush       *Brush;
-		Int         Index;
-		MouseState  State;
-		Position    Position;
-		Timestamp   OccurredAt;
-	}
-
-	snowflake<Segment> Drawing {
-		ID;
-		Brush.Color as Color;
-		BrushID;
-		Index;
-		State;
-		Position;
-
-		specification GetFromID 'it => it.ID > fromID' {
-			Long fromID;
-		}
-
-		order by BrushID, Index;
-	}
-
-*/
 	enum BrushState {
 		Hover; Press; Draw; Lift;
 	}
 
+	value BrushTracking {
+		BrushState State;
+		Double     X;
+		Double     Y;
+	}
+
 	/* mouse actions create brush segments */
 	event BrushAction {
-		Long        BrushID;
-		Int         Index;
-		BrushState  State;
-		Position    Position;
+		Long           BrushID;
+		Int            Index;
+		BrushTracking  Tracking;
+	}
+
+	/* one segment of a brush path */
+	aggregate Segment(BrushID, Index) {
+		Brush          *Brush;
+		Int            Index;
+		BrushTracking  Tracking;
+		Timestamp      OccurredAt;
+	}
+
+	snowflake<Brush> ArtistBrush {
+		ArtistID as ArtistName;
+		Artist.LastActiveAt as ArtistLastActiveAt;
+
+		ID as BrushID;
+		Color;
+		Thickness;
+		LastTracking;
+	}
+
+	olap cube<ArtistBrush> LastBrush {
+		dimension ArtistName;
+		max BrushID LastBrushID;
+
+		specification ActiveSince 'it => it.ArtistLastActiveAt >= DateTime.Now.AddMinutes(-AgeInMinutes)' {
+			Int AgeInMinutes;
+		}
 	}
 }

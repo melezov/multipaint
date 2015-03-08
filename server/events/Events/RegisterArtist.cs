@@ -12,8 +12,6 @@ namespace MultiPaint
 {
 	public class RegisterArtist : IServerService<String, String>
 	{
-		private static readonly SHA1 SHA1 = SHA1.Create();
-
 		private readonly IPersistableRepository<User> userRepository;
 		private readonly IPersistableRepository<Role> roleRepository;
 		private readonly IPersistableRepository<InheritedRole> inheritedRoleRepository;
@@ -31,17 +29,23 @@ namespace MultiPaint
 			this.artistRepository = artistRepository;
 		}
 
+		private static readonly SHA1 SHA1 = SHA1.Create();
+		
 		public String Execute(String name)
 		{
 			if (String.IsNullOrWhiteSpace(name))
 				throw new ArgumentException("Artist name cannot be empty!");
 
+			if (name.Length > 64)
+				throw new ArgumentException("Artist name too long, max length is 64 chars!");
+
 			// try to reserve requested name
-			var requestedName = name;
-			var user = userRepository.Find(requestedName);
+			var displayName = name;
+			var user = userRepository.Find(displayName);
 			// if such a name already exists, create a unique suffix
-			while (user != null) {
-				name = requestedName + "-" + Guid.NewGuid();
+			while (user != null)
+			{
+				name = displayName + "-" + Guid.NewGuid().ToString("N").Substring(0, 8);
 				user = userRepository.Find(name);
 			}
 
@@ -68,6 +72,7 @@ namespace MultiPaint
 
 			var artist = new Artist();
 			artist.User = user;
+			artist.DisplayName = displayName;
 			artistRepository.Insert(artist);
 
 			// we will now create the Base64 auth token and return it to the client

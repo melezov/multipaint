@@ -13,7 +13,7 @@ namespace MultiPaint
 	{
 		private readonly IPersistableRepository<Artist> artistRepository;
 		private readonly IPersistableRepository<Brush> brushRepository;
-		
+
 		public ChangeBrushEventHandler(
 			IPersistableRepository<Artist> artistRepository,
 			IPersistableRepository<Brush> brushRepository)
@@ -23,7 +23,7 @@ namespace MultiPaint
 		}
 
 		private static readonly Regex ColorRegex = new Regex("^#[0-9A-Fa-f]{6}$");
-		private static readonly int MinThickness = 1;
+		private static readonly int MinThickness = 10;
 		private static readonly int MaxThickness = 250;
 
 		public void Handle(ChangeBrush domainEvent)
@@ -46,11 +46,11 @@ namespace MultiPaint
 			var brush = new Brush();
 			brush.Artist = artist;
 			brush.Color = domainEvent.Color;
-			brush.Thickness = brush.Thickness;
+			brush.Thickness = domainEvent.Thickness;
 			brushRepository.Insert(brush);
 
-			// Set artist activity flag 
-			artist.LastActiveAt = DateTime.Now;
+			// Update artist activity
+			artist.LastActiveAt = domainEvent.QueuedAt;
 			artistRepository.Update(artist);
 
 			// return new brush identifier via the event instance

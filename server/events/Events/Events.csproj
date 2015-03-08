@@ -185,28 +185,6 @@
     <Compile Include="BrushActionEventHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\dsl\MultiPaint.dsl">
-      <Link>MultiPaint.dsl</Link>
-    </None>
-    <None Include="..\..\..\dsl\Security.dsl">
-      <Link>Security.dsl</Link>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\..\..\nginx\html\index.html">
-      <Link>index.html</Link>
-    </Content>
-    <Content Include="..\..\..\nginx\html\static\css\colorpicker.css">
-      <Link>colorpicker.css</Link>
-    </Content>
-    <Content Include="..\..\..\nginx\html\static\css\multipaint.css">
-      <Link>multipaint.css</Link>
-    </Content>
-    <Content Include="..\..\..\nginx\html\static\js\multipaint.js">
-      <Link>multipaint.js</Link>
-    </Content>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

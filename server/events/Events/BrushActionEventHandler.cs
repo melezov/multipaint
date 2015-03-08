@@ -9,18 +9,15 @@ namespace MultiPaint
 {
 	public class BrushActionEventHandler : IDomainEventHandler<BrushAction>
 	{
-		private readonly IPersistableRepository<Artist> artistRepository;
 		private readonly IPersistableRepository<Brush> brushRepository;
-		//private readonly IPersistableRepository<Segment> segmentRepository;
+		private readonly IPersistableRepository<Segment> segmentRepository;
 
 		public BrushActionEventHandler(
-			IPersistableRepository<Artist> artistRepository,
-			IPersistableRepository<Brush> brushRepository)/*,
-			IPersistableRepository<Segment> segmentRepository)*/
+			IPersistableRepository<Brush> brushRepository,
+			IPersistableRepository<Segment> segmentRepository)
 		{
-			this.artistRepository = artistRepository;
 			this.brushRepository = brushRepository;
-//			this.segmentRepository = segmentRepository;
+			this.segmentRepository = segmentRepository;
 		}
 
 		public void Handle(BrushAction domainEvent)
@@ -33,24 +30,16 @@ namespace MultiPaint
 			var artistName = Thread.CurrentPrincipal.Identity.Name;
 			if (artistName != brush.ArtistID)
 				throw new ArgumentException("Unauthorized; this brush does not belong to \"" + artistName + "\"");
-
-			var state = domainEvent.State;
-
-			if (state == BrushState.Hover) {
-				brush.LastPosition = domainEvent.Position;
-				brushRepository.Update(brush);
-
-				brush.Artist.LastActiveAt = DateTime.Now;
-				artistRepository.Update(brush.Artist);
-			}
-
-			//var segment = new Segment();
-			//segment.Brush = brush;
-			//segment.Index = domainEvent.Index;
-			//segment.State = domainEvent.State;
-			//segment.Position = domainEvent.Position;
-			//segment.OccurredAt = domainEvent.QueuedAt;
-			//segmentRepository.Insert(segment);
+/*
+			var segment = new Segment();
+			segment.Brush = brush;
+			segment.Index = domainEvent.Index;
+			segment.Tracking = domainEvent.Tracking;
+			segment.OccurredAt = domainEvent.QueuedAt;
+			segmentRepository.Insert(segment);
+*/
+			brush.LastTracking = domainEvent.Tracking;
+			brushRepository.Update(brush);
 		}
 	}
 }

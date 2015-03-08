@@ -1,0 +1,105 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "4f386dec0a473ce8db1eb31110e29770",
+    "packages": [
+        {
+            "name": "dsl-platform/client",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ngs-doo/dsl-client-php.git",
+                "reference": "8e08f2e820408316e8e9fe06abdfda3835ff88eb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ngs-doo/dsl-client-php/zipball/8e08f2e820408316e8e9fe06abdfda3835ff88eb",
+                "reference": "8e08f2e820408316e8e9fe06abdfda3835ff88eb",
+                "shasum": ""
+            },
+            "require": {
+                "ext-simplexml": "*",
+                "lib-curl": "*",
+                "php": ">=5.3.8"
+            },
+            "require-dev": {
+                "dsl-platform/install": "@dev",
+                "phpunit/phpunit": "~4.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "NGS": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "DSL platform PHP client library",
+            "homepage": "https://dsl-platform.com",
+            "keywords": [
+                "DSL",
+                "ddd"
+            ],
+            "time": "2014-12-30 10:39:21"
+        },
+        {
+            "name": "psr/log",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "1af1529b49a6e065ae6802e70192aba35d79b7d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/1af1529b49a6e065ae6802e70192aba35d79b7d8",
+                "reference": "1af1529b49a6e065ae6802e70192aba35d79b7d8",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Psr\\Log\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "time": "2015-02-05 09:32:11"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "dsl-platform/client": 20,
+        "psr/log": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
