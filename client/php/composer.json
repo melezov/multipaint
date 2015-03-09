@@ -1,0 +1,15 @@
+{
+    "name": "multipaint/client",
+    "description": "MultiPaint PHP Frontend",
+    "require": {
+        "dsl-platform/client": "@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "": [
+                "model/",
+                "controller/"
+            ]
+        }
+    }
+}
