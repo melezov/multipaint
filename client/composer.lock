@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4f386dec0a473ce8db1eb31110e29770",
+    "hash": "76a0a01343bd346466eb31417158b726",
     "packages": [
         {
             "name": "dsl-platform/client",

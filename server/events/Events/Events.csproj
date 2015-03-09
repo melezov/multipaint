@@ -180,7 +180,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RegisterArtist.cs" />
+    <Compile Include="ChangeNameEventHandler.cs" />
+    <Compile Include="RegisterArtistEventHandler.cs" />
     <Compile Include="ChangeBrushEventHandler.cs" />
     <Compile Include="BrushActionEventHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
