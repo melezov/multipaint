@@ -1,6 +1,6 @@
 <?php
 
-define('BASE_DIR', __DIR__.'/../../../client/php');
+define('BASE_DIR', __DIR__.'/../../../src/client/php');
 define('APP_DIR', __DIR__.'/../app');
 
 function accept($dir, $file) {

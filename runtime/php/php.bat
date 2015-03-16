@@ -4,10 +4,9 @@ taskkill /F /IM php-cgi.exe
 echo Bundling PHP ...
 echo.
 
-if exist "%~dp0app\client.phar.gz" del "%~dp0app\client.phar.gz"
+if exist "%~dp0app\client.phar" del "%~dp0app\client.phar"
 
 php.exe "%~dp0bundle\bundle.php"
-if exist "%~dp0app\client.phar" del "%~dp0app\client.phar"
 
 start /B php-cgi.exe -b multipaint-php:9003
 echo.

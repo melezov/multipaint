@@ -3,7 +3,7 @@ taskkill /F /IM Revenj.SignalR2SelfHost.exe
 
 if exist "%~dp0model\ServerModel.dll" del "%~dp0model\ServerModel.dll"
 
-copy "%~dp0..\..\server\csharp\model\ServerModel.dll" "%~dp0model"
+copy "%~dp0..\..\src\server\csharp\model\ServerModel.dll" "%~dp0model"
 
 start /B /D "%~dp0bin" Revenj.SignalR2SelfHost.exe
 

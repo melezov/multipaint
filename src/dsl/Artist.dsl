@@ -8,7 +8,7 @@ module MultiPaint
 
 		Timestamp CreatedAt { sequence; }
 		Timestamp LastActiveAt { Index; }
-		
+
 		specification ActiveUsers 'artist => artist.LastActiveAt >= Since' {
 			Timestamp Since;
 		}

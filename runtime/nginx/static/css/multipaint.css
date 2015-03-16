@@ -45,4 +45,5 @@ h1 {
 
 #artist-name {
     font-weight: bold;
+    cursor: pointer;
 }

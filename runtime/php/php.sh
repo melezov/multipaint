@@ -6,4 +6,4 @@ if [ -f  "$dir/app/client.phar" ]; then rm "$dir/app/client.phar"; fi
 
 php "$dir/bundle/bundle.php"
 
-hhvm --mode server -vServer.Type=fastcgi -vServer.Port=9003
+exec hhvm --mode server -vServer.Type=fastcgi -vServer.Port=9003
