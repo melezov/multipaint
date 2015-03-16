@@ -14,8 +14,6 @@
 /// <reference path='model/ChangeBrush.ts' />
 
 /// <reference path='server/Api.ts' />
-/// <reference path='server/ArtistApi.ts' />
-/// <reference path='server/GuestApi.ts' />
 /// <reference path='server/Notificator.ts' />
 
 /// <reference path='MultiPaint.ts' /> 

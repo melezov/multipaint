@@ -68,6 +68,27 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ts", "http://localhost:1873
 		SlnRelativePath = "client\ts\"
 	EndProjectSection
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "static", "http://localhost:24492", "{1A3C2B6C-BC03-4744-A906-A2861D893E72}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_24492"
+		Debug.AspNetCompiler.PhysicalPath = "client\static\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_24492\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_24492"
+		Release.AspNetCompiler.PhysicalPath = "client\static\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_24492\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "client\static\"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(DslPlatformSolutionProperties) = preSolution
 		ConnectionString = server=localhost;database=multipaint;user=multipaint;password=changeit
@@ -116,6 +137,10 @@ Global
 		{2B9D3889-7433-46C4-ABB7-D75F6EE18925}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B9D3889-7433-46C4-ABB7-D75F6EE18925}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{2B9D3889-7433-46C4-ABB7-D75F6EE18925}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{1A3C2B6C-BC03-4744-A906-A2861D893E72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A3C2B6C-BC03-4744-A906-A2861D893E72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A3C2B6C-BC03-4744-A906-A2861D893E72}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A3C2B6C-BC03-4744-A906-A2861D893E72}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

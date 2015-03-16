@@ -26,7 +26,7 @@ class CanvasController extends \Controller {
 
         switch ($section) {
             case '':
-                readfile(VIEWS.'index.html');
+                require(VIEWS.'index.php');
                 exit(0);
 
             default:

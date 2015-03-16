@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <title>MultiPaint</title>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="/static/css/multipaint.css"/>
+        <link rel="stylesheet" href="/static/css/multipaint.css?ver=<?php echo VERSION; ?>"/>
         <link rel="stylesheet" href="/static/css/colorpicker.css"/>
     </head>
 
@@ -26,28 +26,15 @@
     <div id="drawing-area">
         <canvas id="drawing" width="512" height="512"/>
     </div>
+    <div id="signature">
+        Drawing by <span id="artist-name">Guest</span>
+    </div>
 
     <script type="text/javascript" src="/static/js/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="/static/js/jquery.repeatedclick-1.0.5.min.js"></script>
     <script type="text/javascript" src="/static/js/jquery.tinycolorpicker-0.0.7.min.js"></script>
     <script type="text/javascript" src="/static/js/jquery.signalr-2.1.0.min.js"></script>
+    <script type="text/javascript" src="/static/js/multipaint.js?ver=<?php echo VERSION; ?>"></script>
     <script type="text/javascript" src="/signalr/hubs"></script>
-    
-    <script type="text/javascript" src="/client/ts/drawing/Brush.js"></script>
-    <script type="text/javascript" src="/client/ts/drawing/BrushControl.js"></script>
-    <script type="text/javascript" src="/client/ts/drawing/BrushCursor.js"></script>
-    <script type="text/javascript" src="/client/ts/drawing/HSL.js"></script>
-    <script type="text/javascript" src="/client/ts/drawing/RGB.js"></script>
-
-    <script type="text/javascript" src="/client/ts/model/BrushAction.js"></script>
-    <script type="text/javascript" src="/client/ts/model/BrushState.js"></script>
-    <script type="text/javascript" src="/client/ts/model/BrushTracking.js"></script>
-
-    <script type="text/javascript" src="/client/ts/server/Api.js"></script>
-    <script type="text/javascript" src="/client/ts/server/GuestApi.js"></script>
-    <script type="text/javascript" src="/client/ts/server/ArtistApi.js"></script>
-    <script type="text/javascript" src="/client/ts/server/Notificator.js"></script>
-    
-    <script type="text/javascript" src="/client/ts/MultiPaint.js"></script>
 </body>
 </html>

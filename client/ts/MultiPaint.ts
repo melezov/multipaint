@@ -1,31 +1,22 @@
 ﻿/// <reference path='all.ts' /> 
 
+/*
+
 class MultiPaint {
     constructor() {
         this._notificator = new server.Notificator();
-        this._guestApi = new server.GuestApi();
     }    
     
     private _notificator: server.Notificator;
-    private _guestApi: server.GuestApi;
 
     private _artistName: string;
-    private _artistApi: server.ArtistApi;
+    private _artistApi: server.Api;
 
     private _localBrush: drawing.Brush;
     private _localBrushID: number;
     private _localIndex: number;
     private _brushControl: drawing.BrushControl;
     private _brushCursor: drawing.BrushCursor;
-
-    registerArtist(name: string) {
-        this._guestApi.registerArtist(name, token => {
-            this._artistName = name;
-            this._artistApi = new server.ArtistApi(token);
-
-            this._initBrush();
-        });
-    }
 
     private _persistBrush() {
         this._artistApi.changeBrush({
@@ -124,15 +115,18 @@ class MultiPaint {
         });
     }
 }
-
+*/
 $(document).ready(() => {
 
-    var mp = new MultiPaint()
-    mp.registerArtist('Guest');
+    var api = new server.Api();
 
+/*    
+    $('#artist-name').click(e => {
+        var newName = prompt('Enter artist name: ', 'Guest');
+    });
+*/
 
-
-
+//    var mp = new MultiPaint();
 
     //guestApi.registerArtist('Behro', token => {
     //    var api = new server.ArtistApi(token);
@@ -179,3 +173,4 @@ $(document).ready(() => {
     //});
 
 });
+

@@ -3,12 +3,19 @@
 module server {
     'use strict';
 
-    export class ArtistApi extends Api {
-        constructor(token: string) {
-            super();
-            this._addPreProcessor(request => {
-                request.headers['Authorization'] = 'Basic ' + token;
+    export class Api {
+        private _send(type: string, url: string, data: any, callback: (result: any) => void) {
+            $.ajax({
+                type: type,
+                url: url,
+                data: JSON.stringify(data),
+                success: callback,
+                dataType: 'json'
             });
+        }
+            
+        protected _post(url: string, data: any, callback: (result: any) => void) {
+            this._send('POST', url, data, callback);
         }
 
         /* Sends new brush parameters, returns the newly created brushID */
