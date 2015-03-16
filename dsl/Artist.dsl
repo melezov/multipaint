@@ -8,6 +8,10 @@ module MultiPaint
 
 		Timestamp CreatedAt { sequence; }
 		Timestamp LastActiveAt { Index; }
+		
+		specification ActiveUsers 'artist => artist.LastActiveAt >= Since' {
+			Timestamp Since;
+		}
 	}
 
 	/* Allows unauthorized guests to create new Artists */

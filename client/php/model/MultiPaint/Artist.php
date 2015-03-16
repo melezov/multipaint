@@ -512,4 +512,18 @@ class Artist extends \NGS\Patterns\AggregateRoot implements \IteratorAggregate
     {
         return new \ArrayIterator(\MultiPaint\ArtistArrayConverter::toArray($this));
     }
+
+    /**
+     * Find data using declared specification ActiveUsers
+     * Search can be limited by $limit and $offset integer arguments
+     *
+     * @return array of objects that satisfy specification
+     */
+    public static function ActiveUsers($Since, $limit = null, $offset = null, \NGS\Client\HttpClient $client = null)
+    {
+        // require_once __DIR__.'/MultiPaint\Artist/ActiveUsers.php';
+        $proxy = new \NGS\Client\DomainProxy($client);
+        $specification = new \MultiPaint\Artist\ActiveUsers(array('Since' => $Since));
+        return $proxy->searchWithSpecification('MultiPaint\Artist', $specification, $limit, $offset);
+    }
 }

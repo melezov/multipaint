@@ -1,0 +1,123 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "events", "server\csharp\events\events.csproj", "{56EAD6C0-F42B-4348-AC68-B402B16B84B2}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "dsl", "http://localhost:21154", "{51900CC4-CEFE-431B-98C9-ABA4906A357A}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_21154"
+		Debug.AspNetCompiler.PhysicalPath = "dsl\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_21154\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_21154"
+		Release.AspNetCompiler.PhysicalPath = "dsl\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_21154\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "dsl\"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "php", "http://localhost:1871", "{5BF20BB7-482A-4726-8449-E17C83A4C112}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_1871"
+		Debug.AspNetCompiler.PhysicalPath = "client\php\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1871\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_1871"
+		Release.AspNetCompiler.PhysicalPath = "client\php\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1871\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "client\php\"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ts", "http://localhost:1873", "{2B9D3889-7433-46C4-ABB7-D75F6EE18925}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_1873"
+		Debug.AspNetCompiler.PhysicalPath = "client\ts\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1873\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_1873"
+		Release.AspNetCompiler.PhysicalPath = "client\ts\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1873\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "client\ts\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(DslPlatformSolutionProperties) = preSolution
+		ConnectionString = server=localhost;database=multipaint;user=multipaint;password=changeit
+		PostgresMigration = True
+		ApplyMigration = True
+		SqlScriptsPath = runtime\postgresql
+		User = marko@mentat-labs.com
+		Client.Target = 
+		Client.Dependencies = 
+		Portable.Target = 
+		Portable.Dependencies = 
+		Php.Compile = True
+		Php.Name = Php
+		Php.Target = client\php\model
+		Wpf.Target = 
+		Wpf.Dependencies = 
+		SignalR.Target = 
+		SignalR.Dependencies = 
+		Server.Compile = True
+		Server.Target = server\csharp\model
+		Server.Dependencies = server\csharp\dependencies\revenj
+		Server.WithManualJson = True
+		ConfirmUnsafeChanges = False
+		DiffBeforeCompile = False
+		AutoLogin = True
+		LoginInfo = LIswhYbrF6/Cniv7egiP3aQfhLlyxFiCDLuMek4fUHk=
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56EAD6C0-F42B-4348-AC68-B402B16B84B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56EAD6C0-F42B-4348-AC68-B402B16B84B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56EAD6C0-F42B-4348-AC68-B402B16B84B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56EAD6C0-F42B-4348-AC68-B402B16B84B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51900CC4-CEFE-431B-98C9-ABA4906A357A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51900CC4-CEFE-431B-98C9-ABA4906A357A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51900CC4-CEFE-431B-98C9-ABA4906A357A}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{51900CC4-CEFE-431B-98C9-ABA4906A357A}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{5BF20BB7-482A-4726-8449-E17C83A4C112}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BF20BB7-482A-4726-8449-E17C83A4C112}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BF20BB7-482A-4726-8449-E17C83A4C112}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BF20BB7-482A-4726-8449-E17C83A4C112}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{2B9D3889-7433-46C4-ABB7-D75F6EE18925}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B9D3889-7433-46C4-ABB7-D75F6EE18925}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B9D3889-7433-46C4-ABB7-D75F6EE18925}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B9D3889-7433-46C4-ABB7-D75F6EE18925}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

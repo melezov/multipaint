@@ -1,8 +1,9 @@
 module Security
 {
-	role Artist;
 	role Guest;
-
+	role Artist;
+	role Admin;
+    
 	aggregate User(Name) {
 		String(100) Name;
 		Role(Name)  *Role;

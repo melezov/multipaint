@@ -1,0 +1,40 @@
+h1 { 
+  text-align: center; 
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#drawing-area {
+  text-align: center;
+}
+
+#drawing {
+  background-color: lightgray;
+  border: 2px solid black;
+  cursor: none;
+}
+
+#brush-control {
+    text-align: center;
+}
+
+#brush-control > span {
+    font-size: 2em;
+    cursor: pointer;
+}
+
+#brush-brighten span {
+    color: lightgray;
+}
+
+#brush-darken span {
+    color: darkgray;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

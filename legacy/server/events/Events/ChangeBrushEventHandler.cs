@@ -33,7 +33,7 @@
 //			if (artist == null)
 //				throw new ArgumentException("Unauthorized; artist \"" + artistName + "\" does not exist");
 
-//			// Brush parameter validation 
+//			// Brush parameter validation
 //			var color = domainEvent.Color;
 //			if (!ColorRegex.IsMatch(color))
 //				throw new ArgumentException("Invalid color \"" + color + "\", it should be in #rrggbb format");
@@ -42,7 +42,7 @@
 //			if (thickness < MinThickness || thickness > MaxThickness)
 //				throw new ArgumentException("Invalid thickness (" + thickness + "), valid range is [" + MinThickness + ".." + MaxThickness + "]");
 
-//			// Create a new brush for this artist 
+//			// Create a new brush for this artist
 //			var brush = new Brush();
 //			brush.Artist = artist;
 //			brush.Color = domainEvent.Color;
