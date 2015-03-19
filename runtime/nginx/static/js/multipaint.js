@@ -530,6 +530,7 @@ var server;
     server.Notificator = Notificator;
 })(server || (server = {}));
 /// <reference path='all.ts' /> 
+alert('window.location.href');
 /*
 
 class MultiPaint {

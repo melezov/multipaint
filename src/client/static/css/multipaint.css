@@ -41,9 +41,9 @@ h1 {
 
 #signature {
     text-align: center;
+    cursor: pointer;
 }
 
 #artist-name {
     font-weight: bold;
-    cursor: pointer;
 }

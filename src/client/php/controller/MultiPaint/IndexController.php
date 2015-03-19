@@ -5,8 +5,8 @@ class IndexController extends \Controller {
 
     const DEFAULT_ARTIST_NAME = 'Guest';
 
-    public function __construct($url, $params) {
-        parent::__construct($url, $params);
+    public function __construct($url, $method, $params) {
+        parent::__construct($url, $method, $params);
     }
 
     private function registerAndRedirect($name) {
@@ -34,7 +34,7 @@ class IndexController extends \Controller {
                 $this->registerAndRedirect($name);
 
             case self::CANVAS:
-                $controller = new CanvasController($this->url, $this->params);
+                $controller = new CanvasController($this->url, $this->method, $this->params);
                 $controller->process();
 
             default:

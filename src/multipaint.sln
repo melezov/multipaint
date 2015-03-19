@@ -47,27 +47,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "php", "http://localhost:187
 		SlnRelativePath = "client\php\"
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ts", "http://localhost:1873", "{2B9D3889-7433-46C4-ABB7-D75F6EE18925}"
-	ProjectSection(WebsiteProperties) = preProject
-		UseIISExpress = "true"
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_1873"
-		Debug.AspNetCompiler.PhysicalPath = "client\ts\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1873\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_1873"
-		Release.AspNetCompiler.PhysicalPath = "client\ts\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1873\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "client\ts\"
-	EndProjectSection
-EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "static", "http://localhost:24492", "{1A3C2B6C-BC03-4744-A906-A2861D893E72}"
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
@@ -94,7 +73,7 @@ Global
 		ConnectionString = server=localhost;database=multipaint;user=multipaint;password=changeit
 		PostgresMigration = True
 		ApplyMigration = True
-		SqlScriptsPath = runtime\postgresql
+		SqlScriptsPath = ..\runtime\postgresql
 		User = marko@mentat-labs.com
 		Client.Target = 
 		Client.Dependencies = 
@@ -105,8 +84,9 @@ Global
 		Php.Target = client\php\model
 		Wpf.Target = 
 		Wpf.Dependencies = 
-		SignalR.Target = 
-		SignalR.Dependencies = 
+		SignalR.Compile = True
+		SignalR.Target = server\csharp\model
+		SignalR.Dependencies = server\csharp\dependencies\signalr
 		Server.Compile = True
 		Server.Target = server\csharp\model
 		Server.Dependencies = server\csharp\dependencies\revenj
@@ -114,6 +94,7 @@ Global
 		ConfirmUnsafeChanges = False
 		DiffBeforeCompile = False
 		AutoLogin = True
+		OfflineCompiler = dsl-compiler.exe
 		LoginInfo = LIswhYbrF6/Cniv7egiP3aQfhLlyxFiCDLuMek4fUHk=
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -133,10 +114,6 @@ Global
 		{5BF20BB7-482A-4726-8449-E17C83A4C112}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BF20BB7-482A-4726-8449-E17C83A4C112}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{5BF20BB7-482A-4726-8449-E17C83A4C112}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{2B9D3889-7433-46C4-ABB7-D75F6EE18925}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B9D3889-7433-46C4-ABB7-D75F6EE18925}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B9D3889-7433-46C4-ABB7-D75F6EE18925}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B9D3889-7433-46C4-ABB7-D75F6EE18925}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{1A3C2B6C-BC03-4744-A906-A2861D893E72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1A3C2B6C-BC03-4744-A906-A2861D893E72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A3C2B6C-BC03-4744-A906-A2861D893E72}.Release|Any CPU.ActiveCfg = Debug|Any CPU

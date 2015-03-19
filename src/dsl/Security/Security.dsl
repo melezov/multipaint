@@ -9,7 +9,7 @@ module Security
 		Role(Name)  *Role;
 		Binary      PasswordHash;
 		Boolean     IsAllowed;
-		implements server 'Revenj.Security.IUser, Revenj.Security';
+		implements server 'Revenj.Security.IUser';
 	}
 
 	aggregate Role(Name) {
@@ -22,19 +22,19 @@ module Security
 		Role(Name)       *Role;
 		String(100)      ParentName;
 		Role(ParentName) *ParentRole;
-		implements server 'Revenj.Security.IUserRoles, Revenj.Security';
+		implements server 'Revenj.Security.IUserRoles';
 	}
 
 	aggregate GlobalPermission(Name) {
 		String(200) Name;
 		bool        IsAllowed;
-		implements server 'Revenj.Security.IGlobalPermission, Revenj.Security';
+		implements server 'Revenj.Security.IGlobalPermission';
 	}
 
 	aggregate RolePermission(Name, RoleID) {
 		String(200) Name;
 		Role        *Role;
 		bool        IsAllowed;
-		implements server 'Revenj.Security.IRolePermission, Revenj.Security';
+		implements server 'Revenj.Security.IRolePermission';
 	}
 }

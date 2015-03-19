@@ -1,124 +1,137 @@
 ﻿/// <reference path='all.ts' /> 
 
-/*
-
 class MultiPaint {
+    
     constructor() {
-        this._notificator = new server.Notificator();
+
+//        this._notificator = new server.Notificator();
     }    
     
-    private _notificator: server.Notificator;
+    //private _notificator: server.Notificator;
 
-    private _artistName: string;
+//    private _artistName: string;
     private _artistApi: server.Api;
 
-    private _localBrush: drawing.Brush;
-    private _localBrushID: number;
-    private _localIndex: number;
-    private _brushControl: drawing.BrushControl;
-    private _brushCursor: drawing.BrushCursor;
+    //private _localBrush: drawing.Brush;
+    //private _localBrushID: number;
+    //private _localIndex: number;
+    //private _brushControl: drawing.BrushControl;
+    //private _brushCursor: drawing.BrushCursor;
 
-    private _persistBrush() {
-        this._artistApi.changeBrush({
-            Color: this._localBrush.color,
-            Thickness: this._localBrush.thickness
-        }, brushID => {
-            this._localBrushID = brushID;
-            this._localIndex = 0;
-        });
-    }
+    //private _persistBrush() {
+    //    this._artistApi.changeBrush({
+    //        Color: this._localBrush.color,
+    //        Thickness: this._localBrush.thickness
+    //    }, brushID => {
+    //        this._localBrushID = brushID;
+    //        this._localIndex = 0;
+    //    });
+    //}
 
-    private _initBrush() {
-        var brush = new drawing.Brush();
-        this._localBrush = brush;
-        this._brushControl = new drawing.BrushControl(brush);
-        this._brushCursor = new drawing.BrushCursor();
+    //private _initBrush() {
+    //    var brush = new drawing.Brush();
+    //    this._localBrush = brush;
+    //    this._brushControl = new drawing.BrushControl(brush);
+    //    this._brushCursor = new drawing.BrushCursor();
 
-        this._notificator.addBrushChangeListener(uris => {
-            console.log("brush", uris);
-        });
+    //    this._notificator.addBrushChangeListener(uris => {
+    //        console.log("brush", uris);
+    //    });
 
-        this._notificator.addArtistChangeListener(uris => {
-            console.log("artist", uris);
-        });
+    //    this._notificator.addArtistChangeListener(uris => {
+    //        console.log("artist", uris);
+    //    });
 
-        this._brushCursor.addChangeListener(brushTracking => {
-            this._artistApi.brushAction({
-                BrushID: this._localBrushID,
-                Index: this._localIndex,
-                Tracking: brushTracking
-            }, () => { });
-        });
+    //    this._brushCursor.addChangeListener(brushTracking => {
+    //        this._artistApi.brushAction({
+    //            BrushID: this._localBrushID,
+    //            Index: this._localIndex,
+    //            Tracking: brushTracking
+    //        }, () => { });
+    //    });
 
-        var $colorpicker: any = $('#colorPicker');
-        $colorpicker.tinycolorpicker();
+    //    var $colorpicker: any = $('#colorPicker');
+    //    $colorpicker.tinycolorpicker();
 
-        var colorBox = $colorpicker.data("plugin_tinycolorpicker")
-        $colorpicker.bind("change", c => {
-            this._brushControl.color = colorBox.colorHex;
-        });
+    //    var colorBox = $colorpicker.data("plugin_tinycolorpicker")
+    //    $colorpicker.bind("change", c => {
+    //        this._brushControl.color = colorBox.colorHex;
+    //    });
 
-        $('#brush-thicken').repeatedclick(() => this._brushControl.thicken());
-        $('#brush-thin').repeatedclick(() => this._brushControl.thin());
-        $('#brush-random').mousedown(() => this._brushControl.randomize());
-        $('#brush-brighten').repeatedclick(() => this._brushControl.brighten());
-        $('#brush-darken').repeatedclick(() => this._brushControl.darken());
+    //    $('#brush-thicken').repeatedclick(() => this._brushControl.thicken());
+    //    $('#brush-thin').repeatedclick(() => this._brushControl.thin());
+    //    $('#brush-random').mousedown(() => this._brushControl.randomize());
+    //    $('#brush-brighten').repeatedclick(() => this._brushControl.brighten());
+    //    $('#brush-darken').repeatedclick(() => this._brushControl.darken());
 
-        this._brushControl.addChangeListener(brush => {
-            if (brush.color !== colorBox.colorHex) {
-                colorBox.setColor(brush.color);
+    //    this._brushControl.addChangeListener(brush => {
+    //        if (brush.color !== colorBox.colorHex) {
+    //            colorBox.setColor(brush.color);
 
-                var brightenColor = drawing.BrushControl.brighten(brush.hsl);
-                var darkenColor = drawing.BrushControl.darken(brush.hsl);
-                $('#brush-darken span').css('color', darkenColor.toRGB().toHex());
-                $('#brush-brighten span').css('color', brightenColor.toRGB().toHex());
-            }
+    //            var brightenColor = drawing.BrushControl.brighten(brush.hsl);
+    //            var darkenColor = drawing.BrushControl.darken(brush.hsl);
+    //            $('#brush-darken span').css('color', darkenColor.toRGB().toHex());
+    //            $('#brush-brighten span').css('color', brightenColor.toRGB().toHex());
+    //        }
 
-            $('#brush-thickness').text(brush.thickness / 10);
-            this._persistBrush();
-        });
+    //        $('#brush-thickness').text(brush.thickness / 10);
+    //        this._persistBrush();
+    //    });
 
-        this._brushControl.randomize();
+    //    this._brushControl.randomize();
 
-        var $drawing = $('#drawing');
-        var scalePoint = (e: JQueryMouseEventObject) => {
-            var pos = $drawing.position();
-            var relX = (e.clientX - pos.left) / $drawing.width();
-            var relY = (e.clientY - pos.top) / $drawing.height();
-            return new drawing.Point(relX, relY);
-        };
+    //    var $drawing = $('#drawing');
+    //    var scalePoint = (e: JQueryMouseEventObject) => {
+    //        var pos = $drawing.position();
+    //        var relX = (e.clientX - pos.left) / $drawing.width();
+    //        var relY = (e.clientY - pos.top) / $drawing.height();
+    //        return new drawing.Point(relX, relY);
+    //    };
 
-        $(document).mousedown(e => {
-            if (e.which === 1) this._brushCursor.documentBrushDown();
-        });
+    //    $(document).mousedown(e => {
+    //        if (e.which === 1) this._brushCursor.documentBrushDown();
+    //    });
 
-        $(document).mouseup(e => {
-            if (e.which === 1) this._brushCursor.documentBrushUp();
-        });
+    //    $(document).mouseup(e => {
+    //        if (e.which === 1) this._brushCursor.documentBrushUp();
+    //    });
 
-        $drawing.mousedown(e => {
-            if (e.which === 1) this._brushCursor.brushDown(scalePoint(e));
-        });
+    //    $drawing.mousedown(e => {
+    //        if (e.which === 1) this._brushCursor.brushDown(scalePoint(e));
+    //    });
 
-        $drawing.mouseup(e => {
-            if (e.which === 1) this._brushCursor.brushUp(scalePoint(e));
-        });
+    //    $drawing.mouseup(e => {
+    //        if (e.which === 1) this._brushCursor.brushUp(scalePoint(e));
+    //    });
 
-        $drawing.mousemove(e => {
-            this._brushCursor.brushMove(scalePoint(e));
-        });
+    //    $drawing.mousemove(e => {
+    //        this._brushCursor.brushMove(scalePoint(e));
+    //    });
 
-        $drawing.hover(e => {
-            this._brushCursor.brushEnter(scalePoint(e));
-        }, e => {
-            this._brushCursor.brushExit(scalePoint(e));
-        });
-    }
+    //    $drawing.hover(e => {
+    //        this._brushCursor.brushEnter(scalePoint(e));
+    //    }, e => {
+    //        this._brushCursor.brushExit(scalePoint(e));
+    //    });
+    //}
 }
-*/
-$(document).ready(() => {
 
-    var api = new server.Api();
+$(document).ready(() => {
+    var serverUrl = 'http://multipaint-nginx:8080/';
+    var path = window.location.href.substring(serverUrl.length);
+
+    var canvasPattern = /^canvas\/+([-0-9A-Fa-f]{23})\/+([-0-9A-Fa-f]{12})$/;
+    var match = canvasPattern.exec(path);
+    if (match !== null) {
+        var api = new server.ArtistApi(match[1], match[2]);
+        api.changeArtistName({ "NewName": 'abstract' }, () => {
+            console.log('changed name');
+        });
+    }
+
+
+//    var api = new server.Api();
+
 
 /*    
     $('#artist-name').click(e => {

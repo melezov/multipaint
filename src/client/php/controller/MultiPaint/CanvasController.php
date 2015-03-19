@@ -6,8 +6,8 @@ class CanvasController extends \Controller {
 
     private $artistApi;
 
-    public function __construct($url, $params) {
-        parent::__construct($url, $params);
+    public function __construct($url, $method, $params) {
+        parent::__construct($url, $method, $params);
 
         $this->userID = array_shift($this->params);
         $this->password = array_shift($this->params);
@@ -28,6 +28,13 @@ class CanvasController extends \Controller {
             case '':
                 require(VIEWS.'index.php');
                 exit(0);
+
+            case 'change-artist-name':
+                $json = $this->getPostBody();
+                $changeArtistName = ChangeArtistName::fromJson($json);
+                $a = $this->artistApi->changeArtistName($changeArtistName->NewName);
+                var_dump($a);
+                die;
 
             default:
                 $this->notFound();

@@ -8,6 +8,8 @@ if exist "%~dp0app\client.phar" del "%~dp0app\client.phar"
 
 php.exe "%~dp0bundle\bundle.php"
 
+goto :EOF
+
 start /B php-cgi.exe -b multipaint-php:9003
 echo.
 echo Starting PHP ...
